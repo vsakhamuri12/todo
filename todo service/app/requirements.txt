@@ -1,0 +1,6 @@
+fastapi==0.92.0
+mongoengine==0.26.0
+python-dotenv
+python-multipart
+uvicorn==0.17.6
+certifi

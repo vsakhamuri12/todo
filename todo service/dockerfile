@@ -9,7 +9,7 @@ COPY ./app/requirements.txt /todo/requirements.txt
 # 
 
 
-RUN pip install --no-cache-dir --upgrade -r /todo/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r ./todo/requirements.txt
 RUN pip install "python-jose"
 RUN pip install 'pydantic[email]'
 # 

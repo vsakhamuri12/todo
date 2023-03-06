@@ -39,3 +39,16 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Build and push user
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./user service
+          file: ./user service/Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/todo123:userlatest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}

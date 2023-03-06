@@ -30,6 +30,7 @@ jobs:
         id: docker_build_todo
         uses: docker/build-push-action@v2
         with:
+          platforms: linux/arm64
           context: ./todo service
           file: ./todo service/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
@@ -43,6 +44,7 @@ jobs:
         id: docker_build_user
         uses: docker/build-push-action@v2
         with:
+          platforms: linux/arm64
           context: ./user service
           file: ./user service/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
